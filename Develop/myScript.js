@@ -5,7 +5,6 @@ $(document).ready(function() {
     var nowHour24 = moment().format('H');
     var $dateHeading = $('#currentDay');
     $dateHeading.text(now);
-    var saveIcon = "";
     //Get stored todo items from ls and parse the JSON string to an object
     var storedPlans = JSON.parse(localStorage.getItem('storedPlans'));
  
@@ -86,18 +85,21 @@ $(document).ready(function() {
         plannerContainer.append(rowDiv);
     };
 	//Trigger the row color updating
-	//Thanks to gabepettus for help figuring this out
+	//Thanks to gabepettus
     function updateRowColor(hourRow, hour) {
 
         if (hour < nowHour24) {
 
-            hourRow.css('background-color', 'lightgrey');
+            hourRow.css('background-color', '#7b69b8');
+            hourRow.css('opacity', '75%' );
         } else if (hour > nowHour24) {
 
-            hourRow.css('background-color', 'lightgreen');
+            hourRow.css('background-color', '#B06A91');
+            hourRow.css('opacity', '#50%');
         } else {
 
-            hourRow.css('background-color', 'tomato');
+            hourRow.css('background-color', '#518783');
+            hourRow.css('opacity', '#50%');
         }
     }
     //Onclick to listen for clicks in the planner area
@@ -123,12 +125,16 @@ $(document).ready(function() {
         $(`#saveid-${i}`).addClass('shadowPulse');
 	});
 	//Create an array of inspirational quotes to pull from each day and place in the footer
-	// var inspiration = [
-	// 	'"What you get by achieving your goals is not as important as what you become by achieving your goals." - Zig Ziglar', ' "When you have a dream, you &apos; ve got to grab it and never let go. Carol Burnett" ',
-	// ]
-	// var footerQuote = $(".footer-text");
+//     function footerQuotes() {
 
-	// for (var i = 0, i < inspiration.length; i++) {
-	// 	footerQuote.text(inspiration[i]);
-	// }
+//     var inspiration = [
+// 		"What you get by achieving your goals is not as important as what you become by achieving your goals. - Zig Ziglar", "When you have a dream, you &apos; ve got to grab it and never let go. - Carol Burnett",
+// 	]
+// 	var footerQuote = $(".footer-text");
+// 	for (var i = 0, i < inspiration.length; i++) {
+// 		footerQuote.innerHTML(inspiration[i]);
+//     }
+// };
 });
+
+//Tutoring: Debug local storage issues and quotes array
