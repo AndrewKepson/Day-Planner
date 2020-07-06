@@ -3,8 +3,8 @@ $(document).ready(function() {
     var now = moment().format('MMMM Do YYYY');
     var nowHour12 = moment().format('h');
     var nowHour24 = moment().format('H');
-    var $dateHeading = $('#currentDay');
-    $dateHeading.text(now);
+    var headerDate = $('#currentDay');
+    headerDate.text(now);
     //Get stored todo items from ls and parse the JSON string to an object
     var storedPlans = JSON.parse(localStorage.getItem('storedPlans'));
  
